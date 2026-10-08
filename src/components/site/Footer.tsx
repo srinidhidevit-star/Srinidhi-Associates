@@ -39,7 +39,7 @@ export function Footer() {
                 <rect x="2" y="4" width="20" height="16" rx="2" />
               </svg>
               <a href="mailto:MD393@srinidhiassociates.com?subject=Business%20Enquiry%20-%20Srinidhi%20Associates" className="hover:underline">
-                MD393@srinidhiassociates.com
+                MD393@srinidhiassociates.in
               </a>
             </p>
           </div>
