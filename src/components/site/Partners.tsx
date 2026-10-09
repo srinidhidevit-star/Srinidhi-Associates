@@ -1,23 +1,43 @@
 export function Partners() {
-  const banks = [
-    "HDFC Bank",
-    "State Bank of India",
-    "ICICI Bank",
-    "Axis Bank",
-    "Kotak Mahindra Bank",
-    "IDFC First Bank",
-    "RBL Bank",
-  ];
+  // const banks = [
+  //   "HDFC Bank",
+  //   "State Bank of India",
+  //   "ICICI Bank",
+  //   "Axis Bank",
+  //   "Kotak Mahindra Bank",
+  //   "IDFC First Bank",
+  //   "RBL Bank",
+  // ];
 
-  const fintechs = [
-    "Paytm",
-    "PhonePe",
-    "Slice",
-    "KreditBee",
-    "Groww",
-    "MoneyTap",
-    "Navi Finserv",
-  ];
+  // const fintechs = [
+  //   "Paytm",
+  //   "PhonePe",
+  //   "Slice",
+  //   "KreditBee",
+  //   "Groww",
+  //   "MoneyTap",
+  //   "Navi Finserv",
+  // ];
+
+const banks = [
+  { name: "HDFC Bank", url: "https://www.hdfcbank.com/" },
+  { name: "State Bank of India", url: "https://sbi.co.in/" },
+  { name: "ICICI Bank", url: "https://www.icicibank.com/" },
+  { name: "Axis Bank", url: "https://www.axisbank.com/" },
+  { name: "Kotak Mahindra Bank", url: "https://www.kotak.com/" },
+  { name: "IDFC First Bank", url: "https://www.idfcfirstbank.com/" },
+  { name: "RBL Bank", url: "https://www.rblbank.com/" },
+];
+
+const fintechs = [
+  { name: "Paytm", url: "https://paytm.com/" },
+  { name: "PhonePe", url: "https://www.phonepe.com/" },
+  { name: "Slice", url: "https://www.sliceit.com/" },
+  { name: "KreditBee", url: "https://www.kreditbee.in/" },
+  { name: "Groww", url: "https://groww.in/" },
+  { name: "MoneyTap", url: "https://moneytap.com/" },
+  { name: "Navi Finserv", url: "https://navi.com/" },
+];
 
   const BankIcon = () => (
     <svg
@@ -83,35 +103,54 @@ export function Partners() {
     </svg>
   );
 
-  const renderBankCard = (bank: string, index: number) => (
-    <div
-      key={`${bank}-${index}`}
-      className="mx-4 flex-shrink-0 min-w-[220px] bg-white/95 backdrop-blur border border-white/40 rounded-2xl px-8 py-6 flex items-center gap-4 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:bg-white"
+  const renderBankCard = (
+    bank: { name: string; url: string },
+    index: number
+  ) => (
+    <a
+      key={`${bank.name}-${index}`}
+      href={bank.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Visit ${bank.name} official website`}
+      className="mx-2 flex min-w-0 items-center gap-4 rounded-2xl border border-white/40 bg-white/95 px-5 py-6 shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-2xl sm:mx-3 sm:px-6"
     >
-      <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-xl bg-primary/10 text-primary">
+      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
         <BankIcon />
       </div>
 
-      <div className="font-semibold text-slate-900 text-sm whitespace-nowrap">
-        {bank}
+      <div className="text-sm font-semibold text-slate-900">
+        {bank.name}
       </div>
-    </div>
+    </a>
   );
 
-  const renderFintechCard = (name: string, index: number) => (
-    <div
-      key={`${name}-${index}`}
-      className="mx-4 flex-shrink-0 min-w-[220px] bg-white/95 backdrop-blur border border-white/40 rounded-2xl px-8 py-6 flex items-center gap-4 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:bg-white"
+  const renderFintechCard = (
+    fintech: { name: string; url: string },
+    index: number
+  ) => (
+    <a
+      key={`${fintech.name}-${index}`}
+      href={fintech.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Visit ${fintech.name} official website`}
+      className="mx-2 flex min-w-0 items-center gap-4 rounded-2xl border border-white/40 bg-white/95 px-5 py-6 shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-2xl sm:mx-3 sm:px-6"
     >
-      <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-xl bg-primary/10 text-primary">
-        {name === "Navi Finserv" ? <BuildingIcon /> : <WalletIcon />}
+      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+        {fintech.name === "Navi Finserv" ? (
+          <BuildingIcon />
+        ) : (
+          <WalletIcon />
+        )}
       </div>
 
-      <div className="font-semibold text-slate-900 text-sm whitespace-nowrap">
-        {name}
+      <div className="text-sm font-semibold text-slate-900">
+        {fintech.name}
       </div>
-    </div>
+    </a>
   );
+
 
   return (
     <section className="relative overflow-hidden py-28">
@@ -145,39 +184,63 @@ export function Partners() {
             BANKS MARQUEE
             CONTINUOUS / SEAMLESS
         ============================================================ */}
-        <div className="relative w-full overflow-hidden mb-10">
+        {/* <div className="relative w-full overflow-hidden mb-10">
           <div className="partners-marquee partners-marquee-left">
             <div className="partners-marquee-group">
               {banks.map(renderBankCard)}
-            </div>
+            </div> */}
 
             {/* Exact duplicate required for seamless looping */}
-            <div className="partners-marquee-group" aria-hidden="true">
+            {/* <div className="partners-marquee-group" aria-hidden="true">
               {banks.map((bank, index) =>
                 renderBankCard(bank, index + banks.length)
               )}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* ============================================================
             FINTECH MARQUEE
             CONTINUOUS / SEAMLESS
         ============================================================ */}
-        <div className="relative w-full overflow-hidden">
+        {/* <div className="relative w-full overflow-hidden">
           <div className="partners-marquee partners-marquee-right">
             <div className="partners-marquee-group">
               {fintechs.map(renderFintechCard)}
-            </div>
+            </div> */}
 
             {/* Exact duplicate required for seamless looping */}
-            <div className="partners-marquee-group" aria-hidden="true">
+            {/* <div className="partners-marquee-group" aria-hidden="true">
               {fintechs.map((name, index) =>
                 renderFintechCard(name, index + fintechs.length)
               )}
             </div>
           </div>
+        </div> */}
+
+        {/* BANKS — STATIC CLICKABLE CARDS */}
+        <div className="mb-10 w-full">
+          <h3 className="mb-5 text-xl font-semibold text-white">
+            Banking Partners
+          </h3>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {banks.map(renderBankCard)}
+          </div>
         </div>
+
+        {/* FINTECHS — STATIC CLICKABLE CARDS */}
+        <div className="w-full">
+          <h3 className="mb-5 text-xl font-semibold text-white">
+            Fintech Partners
+          </h3>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {fintechs.map(renderFintechCard)}
+          </div>
+        </div>
+
+
 
         {/* ============================================================
             CLIENT PORTFOLIO DESCRIPTION
